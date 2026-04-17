@@ -14,10 +14,10 @@ class TinyEditor extends Component
         $this->apiKey = $apiKey;
     }
 
-    public function updateValue(string $content)
+    public function updateValue(?string $content = null)
     {
-        $this->value = $content;
-        $this->dispatch('editorUpdated', content: $content);
+        $this->value = $content ?? '';
+        $this->dispatch('editorUpdated', content: $this->value);
     }
 
     public function render()

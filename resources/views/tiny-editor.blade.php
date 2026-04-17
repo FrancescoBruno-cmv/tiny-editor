@@ -6,13 +6,17 @@
     </div>
 
     <script>
-        tinymce.init({
-            selector: '#tiny-editor-{{ $id }}',
-            setup: function(editor) {
-                editor.on('change', function() {
-                    Livewire.find('{{ $id }}').call('updateValue', editor.getContent());
-                });
-            }
+        document.addEventListener('DOMContentLoaded', function() {
+            tinymce.init({
+                selector: '#tiny-editor-{{ $id }}',
+                setup: function(editor) {
+                    editor.on('init', function() {
+                        editor.on('change keyup', function() {
+                            Livewire.find('{{ $id }}').call('updateValue', editor.getContent());
+                        });
+                    });
+                }
+            });
         });
     </script>
 </div>
