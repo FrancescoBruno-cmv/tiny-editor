@@ -1,4 +1,3 @@
-{{-- resources/views/tiny-editor.blade.php --}}
 <div>
     <script src="https://cdn.tiny.cloud/1/{{ $apiKey }}/tinymce/8/tinymce.min.js" referrerpolicy="origin"></script>
     
@@ -11,8 +10,7 @@
             selector: '#tiny-editor-{{ $id }}',
             setup: function(editor) {
                 editor.on('change', function() {
-                    const component = Livewire.find('{{ $id }}');
-                    component.set('value', editor.getContent());
+                    Livewire.find('{{ $id }}').call('updateValue', editor.getContent());
                 });
             }
         });

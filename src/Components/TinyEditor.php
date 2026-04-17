@@ -14,11 +14,17 @@ class TinyEditor extends Component
         $this->apiKey = $apiKey;
     }
 
+    public function updateValue(string $content)
+    {
+        $this->value = $content;
+        $this->dispatch('editorUpdated', content: $content);
+    }
+
     public function render()
     {
         return view('tiny-editor::tiny-editor', [
             'apiKey' => $this->apiKey,
-            'id' => $this->getId(), // ID univoco del componente Livewire
+            'id' => $this->getId(),
         ]);
     }
 }
