@@ -8,16 +8,17 @@ class TinyEditor extends Component
 {
     public string $value = '';
     public string $apiKey = '';
-    public string $model = '';
 
-    public function mount(string $apiKey, string $model = 'content')
+    public function mount(string $apiKey)
     {
         $this->apiKey = $apiKey;
-        $this->model = $model;
     }
 
     public function render()
     {
-        return view('tiny-editor::tiny-editor');
+        return view('tiny-editor::tiny-editor', [
+            'apiKey' => $this->apiKey,
+            'id' => $this->getId(), // ID univoco del componente Livewire
+        ]);
     }
 }
