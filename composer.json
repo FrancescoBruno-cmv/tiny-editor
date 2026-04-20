@@ -2,6 +2,14 @@
     "name": "francescobruno-cmv/tiny-editor",
     "description": "A TinyMCE Livewire component",
     "type": "library",
+    "keywords": ["laravel", "blade", "component", "TinyMCE", "input", "livewire", "rich", "text", "editor"],
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Francesco Bruno",
+            "email": "f.bruno@cmvgroup.it"
+        }
+    ],
     "require": {
         "php": "^8.1",
         "livewire/livewire": "^3.0 || ^4.0"
@@ -17,5 +25,7 @@
                 "FrancescoBrunoCmv\\TinyEditor\\TinyEditorServiceProvider"
             ]
         }
-    }
+    },
+    "minimum-stability": "stable",
+    "prefer-stable": true
 }
